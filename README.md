@@ -1,4 +1,4 @@
-<img src="https://github.com/eric-pierce/Austin-Housing-App/blob/main/images/AustinHousing-Screenshot.png" alt="Example 3" width="288" height="623" /> <img src="https://github.com/eric-pierce/Austin-Housing-App/blob/main/images/AustinHousing-Screenshot.png" alt="Example 2" width="288" height="623" />
+<img src="https://github.com/eric-pierce/Austin-Housing-App/blob/main/images/AustinHousing-Screenshot.png" alt="Example 3" width="288" height="623" />
 
 # The Austin Housing Field Agent
 
