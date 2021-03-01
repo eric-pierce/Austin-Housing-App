@@ -229,6 +229,58 @@ class ViewController: UIViewController {
         downloadImage(from: url)
     }
    
+    func whatZip(thishouse: House) -> Int {
+        var zip = 90210
+        if thishouse.zip_78617 == 1 {zip = 78617}
+        else if thishouse.zip_78619 == 1 {zip = 78619}
+        else if thishouse.zip_78652 == 1 {zip = 78652}
+        else if thishouse.zip_78653 == 1 {zip = 78653}
+        else if thishouse.zip_78660 == 1 {zip = 78660}
+        else if thishouse.zip_78701 == 1 {zip = 78701}
+        else if thishouse.zip_78702 == 1 {zip = 78702}
+        else if thishouse.zip_78703 == 1 {zip = 78703}
+        else if thishouse.zip_78704 == 1 {zip = 78704}
+        else if thishouse.zip_78705 == 1 {zip = 78705}
+        else if thishouse.zip_78717 == 1 {zip = 78717}
+        else if thishouse.zip_78719 == 1 {zip = 78719}
+        else if thishouse.zip_78721 == 1 {zip = 78721}
+        else if thishouse.zip_78722 == 1 {zip = 78722}
+        else if thishouse.zip_78723 == 1 {zip = 78723}
+        else if thishouse.zip_78724 == 1 {zip = 78724}
+        else if thishouse.zip_78725 == 1 {zip = 78725}
+        else if thishouse.zip_78726 == 1 {zip = 78726}
+        else if thishouse.zip_78727 == 1 {zip = 78727}
+        else if thishouse.zip_78728 == 1 {zip = 78728}
+        else if thishouse.zip_78729 == 1 {zip = 78729}
+        else if thishouse.zip_78730 == 1 {zip = 78730}
+        else if thishouse.zip_78731 == 1 {zip = 78731}
+        else if thishouse.zip_78732 == 1 {zip = 78732}
+        else if thishouse.zip_78733 == 1 {zip = 78733}
+        else if thishouse.zip_78734 == 1 {zip = 78734}
+        else if thishouse.zip_78735 == 1 {zip = 78735}
+        else if thishouse.zip_78736 == 1 {zip = 78736}
+        else if thishouse.zip_78737 == 1 {zip = 78737}
+        else if thishouse.zip_78738 == 1 {zip = 78738}
+        else if thishouse.zip_78739 == 1 {zip = 78739}
+        else if thishouse.zip_78741 == 1 {zip = 78741}
+        else if thishouse.zip_78742 == 1 {zip = 78742}
+        else if thishouse.zip_78744 == 1 {zip = 78744}
+        else if thishouse.zip_78745 == 1 {zip = 78745}
+        else if thishouse.zip_78746 == 1 {zip = 78746}
+        else if thishouse.zip_78747 == 1 {zip = 78747}
+        else if thishouse.zip_78748 == 1 {zip = 78748}
+        else if thishouse.zip_78749 == 1 {zip = 78749}
+        else if thishouse.zip_78750 == 1 {zip = 78750}
+        else if thishouse.zip_78751 == 1 {zip = 78751}
+        else if thishouse.zip_78752 == 1 {zip = 78752}
+        else if thishouse.zip_78753 == 1 {zip = 78753}
+        else if thishouse.zip_78754 == 1 {zip = 78754}
+        else if thishouse.zip_78756 == 1 {zip = 78756}
+        else if thishouse.zip_78757 == 1 {zip = 78757}
+        else if thishouse.zip_78758 == 1 {zip = 78758}
+        else if thishouse.zip_78759 == 1 {zip = 78759}
+        return zip
+    }
     
     func loadData() -> [String] {
         var housedata = [] as [String]
@@ -375,7 +427,8 @@ class ViewController: UIViewController {
         let price = austinHousingOutput.price
         priceLabel.text = priceFormatter.string(for: price)
         detailsLabel.numberOfLines = 4
-        detailsLabel.text = "Living Area: " + String(currhouse.livingAreaSqFt) + "\nBathrooms: " + String(currhouse.Bathrooms) + "\nBedrooms: " + String(currhouse.Bedrooms)
+        var housezip = whatZip(thishouse: currhouse)
+        detailsLabel.text = "Living Area: " + String(currhouse.livingAreaSqFt) + "\nBathrooms: " + String(currhouse.Bathrooms) + "\nBedrooms: " + String(currhouse.Bedrooms) + "\nZip: " + String(housezip)
         //testDataLabel.text = priceFormatter.string(for: housedata.count)
     }
 }
