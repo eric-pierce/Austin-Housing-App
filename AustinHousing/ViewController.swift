@@ -128,12 +128,13 @@ struct House: Codable {
     var zip_78758: Double
     var zip_78759: Double
     var price: Double
+    var photo: String
 }
 
 class ViewController: UIViewController {
 
     let model = AustinHousing_3()
-    let homedata = Bundle.main.decode([House].self, from: "test-data.json")
+    let homedata = Bundle.main.decode([House].self, from: "finaldata.json")
     var curr_zpid = 58317621
     //var thishouse = House()
     //var modelData = [] as [String]
@@ -160,6 +161,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var detailsLabel: UILabel!
 
     @IBOutlet weak var zpidinput: UITextField!
+    
+    @IBOutlet weak var showphoto: UIImageView!
 
     @IBAction func ZpidInput(_ sender: Any) {
         var newhouse = homedata.filter{$0.zpid == Int(self.zpidinput.text!)}
@@ -170,6 +173,8 @@ class ViewController: UIViewController {
         //        print("key: \(child.label), value: \(child.value)")
         //    }
             //detailsLabel.text = thishouse[0].self
+            let url = URL(string: newhouse[0].photo)!
+            downloadImage(from: url)
             updatePredictedPrice(thishouse: newhouse[0])
         }
      }
@@ -183,12 +188,30 @@ class ViewController: UIViewController {
             pickerView.dataSource = pickerDataSource
 
             let features: [Feature] = [.livingArea, .bathrooms, .bedrooms]
+            //let features: [Feature] = [.garage, .bathrooms, .security]
             for feature in features {
                 pickerView.selectRow(2, inComponent: feature.rawValue, animated: false)
             }
         }
     }
-    
+
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+
+
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                self?.showphoto.image = UIImage(data: data)
+            }
+        }
+    }
+
     /// Updated the predicted price, when created.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -200,7 +223,10 @@ class ViewController: UIViewController {
         var thishouse = homedata.filter{$0.zpid == curr_zpid}
         print(thishouse[0].price)
         zpidinput.text = String(curr_zpid)
+        var currphoto = thishouse[0].photo
         updatePredictedPrice(thishouse: thishouse[0])
+        let url = URL(string: currphoto)!
+        downloadImage(from: url)
     }
    
     
@@ -243,6 +269,8 @@ class ViewController: UIViewController {
         let livingArea = pickerDataSource.value(for: selectedRow(for: .livingArea), feature: .livingArea)
         let bathrooms = pickerDataSource.value(for: selectedRow(for: .bathrooms), feature: .bathrooms)
         let bedrooms = pickerDataSource.value(for: selectedRow(for: .bedrooms), feature: .bedrooms)
+        //let garage = pickerDataSource.value(for: selectedRow(for: .garage), feature: .garage)
+        //let security = pickerDataSource.value(for: selectedRow(for: .security), feature: .security)
 
         
         //guard let marsHabitatPricerOutput = try? model.prediction(solarPanels: solarPanels, greenhouses: greenhouses, size: size) else {
@@ -254,11 +282,13 @@ class ViewController: UIViewController {
             hasAssociation: currhouse.hasAssociation,
             hasCooling: currhouse.hasCooling,
             hasGarage: currhouse.hasGarage,
+            //hasGarage: garage,//currhouse.hasGarage,
             hasHeating: currhouse.hasHeating,
             hasSpa: currhouse.hasSpa,
             hasView: currhouse.hasView,
             lotSizeSqFt: currhouse.lotSizeSqFt,
             livingAreaSqFt: livingArea,
+            //livingAreaSqFt: currhouse.livingAreaSqFt, //livingArea,
             avgSchoolDistance: currhouse.avgSchoolDistance,
             avgSchoolRating: currhouse.avgSchoolRating,
             avgSchoolSize: currhouse.avgSchoolSize,
@@ -269,12 +299,14 @@ class ViewController: UIViewController {
             HasAppliances: currhouse.HasAppliances,
             HasPatioPorch: currhouse.HasPatioPorch,
             HasSecurityFeatures: currhouse.HasSecurityFeatures,
+            //HasSecurityFeatures: security,//currhouse.HasSecurityFeatures,
             HasWaterfront: currhouse.HasWaterfront,
             HasWindowFeatures: currhouse.HasWindowFeatures,
             NearElementarySchools: currhouse.NearElementarySchools,
             NearMiddleSchools: currhouse.NearMiddleSchools,
             NearHighSchools: currhouse.NearHighSchools,
             Bathrooms: bathrooms,
+            //Bedrooms: currhouse.Bedrooms,//bedrooms,
             Bedrooms: bedrooms,
             Stories: currhouse.Stories,
             ht_Apartment: currhouse.ht_Apartment,

@@ -18,6 +18,9 @@
 		14A8A1521EB15BF900263F76 /* BathroomsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8A1511EB15BF900263F76 /* BathroomsDataSource.swift */; };
 		14A8A1541EB15C0E00263F76 /* BedroomsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8A1531EB15C0E00263F76 /* BedroomsDataSource.swift */; };
 		14F3A3BD1EB2C5ED004FA86D /* ViewController+PickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3A3BC1EB2C5ED004FA86D /* ViewController+PickerViewDelegate.swift */; };
+		E529611B25EC5C7D0073E5AB /* GarageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529611A25EC5C7D0073E5AB /* GarageDataSource.swift */; };
+		E529611E25EC5CBF0073E5AB /* SecurityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529611D25EC5CBF0073E5AB /* SecurityDataSource.swift */; };
+		E529612D25EC6F810073E5AB /* finaldata.json in Resources */ = {isa = PBXBuildFile; fileRef = E529612C25EC6F810073E5AB /* finaldata.json */; };
 		E54CB07A25E2CBF8002076EF /* AustinHousing.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E54CB07925E2CBF8002076EF /* AustinHousing.mlmodel */; };
 		E54CB08125E2D62F002076EF /* test-data.csv in Resources */ = {isa = PBXBuildFile; fileRef = E54CB08025E2D62F002076EF /* test-data.csv */; };
 		E54CB08825E301B2002076EF /* test-data.json in Resources */ = {isa = PBXBuildFile; fileRef = E54CB08725E301B2002076EF /* test-data.json */; };
@@ -40,6 +43,9 @@
 		14A8A1531EB15C0E00263F76 /* BedroomsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomsDataSource.swift; sourceTree = "<group>"; };
 		14F3A3BC1EB2C5ED004FA86D /* ViewController+PickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PickerViewDelegate.swift"; sourceTree = "<group>"; };
 		5945C6C0636E22402B9E0247 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		E529611A25EC5C7D0073E5AB /* GarageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageDataSource.swift; sourceTree = "<group>"; };
+		E529611D25EC5CBF0073E5AB /* SecurityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityDataSource.swift; sourceTree = "<group>"; };
+		E529612C25EC6F810073E5AB /* finaldata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = finaldata.json; sourceTree = "<group>"; };
 		E54CB07925E2CBF8002076EF /* AustinHousing.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AustinHousing.mlmodel; sourceTree = "<group>"; };
 		E54CB08025E2D62F002076EF /* test-data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "test-data.csv"; sourceTree = "<group>"; };
 		E54CB08725E301B2002076EF /* test-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-data.json"; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 				E54CB08C25E30A6B002076EF /* AustinHousing_3.mlmodel */,
 				E54CB08025E2D62F002076EF /* test-data.csv */,
 				E54CB08725E301B2002076EF /* test-data.json */,
+				E529612C25EC6F810073E5AB /* finaldata.json */,
 				1405CF3B1EB15517009DDFA4 /* Main.storyboard */,
 				1405CF3E1EB15517009DDFA4 /* Assets.xcassets */,
 				1405CF401EB15517009DDFA4 /* LaunchScreen.storyboard */,
@@ -111,6 +118,8 @@
 				14A8A14D1EB15BD500263F76 /* PickerViewDataSource.swift */,
 				14A8A14F1EB15BE800263F76 /* LivingAreaDataSource.swift */,
 				14A8A1511EB15BF900263F76 /* BathroomsDataSource.swift */,
+				E529611A25EC5C7D0073E5AB /* GarageDataSource.swift */,
+				E529611D25EC5CBF0073E5AB /* SecurityDataSource.swift */,
 				14A8A1531EB15C0E00263F76 /* BedroomsDataSource.swift */,
 			);
 			path = "Data Sources";
@@ -192,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E529612D25EC6F810073E5AB /* finaldata.json in Resources */,
 				E54CB08825E301B2002076EF /* test-data.json in Resources */,
 				1405CF421EB15517009DDFA4 /* LaunchScreen.storyboard in Resources */,
 				1405CF3F1EB15517009DDFA4 /* Assets.xcassets in Resources */,
@@ -210,12 +220,14 @@
 				1405CF3A1EB15517009DDFA4 /* ViewController.swift in Sources */,
 				14F3A3BD1EB2C5ED004FA86D /* ViewController+PickerViewDelegate.swift in Sources */,
 				14A8A1541EB15C0E00263F76 /* BedroomsDataSource.swift in Sources */,
+				E529611B25EC5C7D0073E5AB /* GarageDataSource.swift in Sources */,
 				14A8A1521EB15BF900263F76 /* BathroomsDataSource.swift in Sources */,
 				141947F31EB2A1F900D03315 /* Feature.swift in Sources */,
 				E54CB08D25E30A6B002076EF /* AustinHousing_3.mlmodel in Sources */,
 				14A8A1501EB15BE800263F76 /* LivingAreaDataSource.swift in Sources */,
 				E54CB07A25E2CBF8002076EF /* AustinHousing.mlmodel in Sources */,
 				14A8A14E1EB15BD500263F76 /* PickerViewDataSource.swift in Sources */,
+				E529611E25EC5CBF0073E5AB /* SecurityDataSource.swift in Sources */,
 				1405CF381EB15517009DDFA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

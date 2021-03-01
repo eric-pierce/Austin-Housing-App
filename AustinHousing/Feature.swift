@@ -13,5 +13,6 @@ import UIKit
      model. So each needs an appropriate `UIPicker` as well.
 */
 enum Feature: Int {
+    //case bathrooms, garage, security //, livingArea, bedrooms
     case livingArea, bathrooms, bedrooms
 }

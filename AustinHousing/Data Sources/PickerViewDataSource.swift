@@ -17,7 +17,9 @@ class PickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     private let livingAreaDataSource = LivingAreaDataSource()
     private let bathroomsDataSource = BathroomsDataSource()
     private let bedroomsDataSource = BedroomsDataSource()
-    
+    //private let garageDataSource = GarageDataSource()
+    //private let securityDataSource = SecurityDataSource()
+
     // MARK: - Helpers
     
     /// Find the title for the given feature.
@@ -25,7 +27,9 @@ class PickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         switch feature {
         case .livingArea:  return livingAreaDataSource.title(for: row)
         case .bathrooms:  return bathroomsDataSource.title(for: row)
-        case .bedrooms:         return bedroomsDataSource.title(for: row)
+        case .bedrooms:   return bedroomsDataSource.title(for: row)
+        //case .garage:   return garageDataSource.title(for: row)
+        //case .security:   return securityDataSource.title(for: row)
         }
     }
     
@@ -37,6 +41,9 @@ class PickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         case .livingArea:      value = livingAreaDataSource.value(for: row)
         case .bathrooms:      value = bathroomsDataSource.value(for: row)
         case .bedrooms:             value = bedroomsDataSource.value(for: row)
+        //case .garage:             value = garageDataSource.value(for: row)
+        //case .security:             value = securityDataSource.value(for: row)
+
         }
         
         return value!
@@ -55,6 +62,8 @@ class PickerDataSource: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         case .livingArea:  return livingAreaDataSource.values.count
         case .bathrooms:  return bathroomsDataSource.values.count
         case .bedrooms:  return bedroomsDataSource.values.count
+        //case .garage:  return garageDataSource.values.count
+        //case .security:  return securityDataSource.values.count
         }
     }
 }
