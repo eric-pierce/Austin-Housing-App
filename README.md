@@ -2,4 +2,6 @@
 
 # The Austin Housing Field Agent
 
-A simple app to show home listers how their specific housing listing would be impacted by making updates to their property
+A simple app to show home listers how their specific housing listing would be impacted by making updates to their property.
+
+In order to download this app clone this repository, open in XCode, compile and deploy to your device.
