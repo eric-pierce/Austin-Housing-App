@@ -161,7 +161,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var detailsLabel: UILabel!
 
     @IBOutlet weak var zpidinput: UITextField!
-    
     @IBOutlet weak var showphoto: UIImageView!
 
     @IBAction func ZpidInput(_ sender: Any) {
@@ -176,6 +175,7 @@ class ViewController: UIViewController {
             let url = URL(string: newhouse[0].photo)!
             downloadImage(from: url)
             updatePredictedPrice(thishouse: newhouse[0])
+            
         }
      }
     
@@ -215,6 +215,7 @@ class ViewController: UIViewController {
     /// Updated the predicted price, when created.
     override func viewDidLoad() {
         super.viewDidLoad()
+        zpidinput.keyboardType = .asciiCapableNumberPad
         //updatePredictedPrice()
         //modelData = loadData()
         //let homedata = Bundle.main.decode([House].self, from: "test-data.json")
@@ -227,8 +228,15 @@ class ViewController: UIViewController {
         updatePredictedPrice(thishouse: thishouse[0])
         let url = URL(string: currphoto)!
         downloadImage(from: url)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     func whatZip(thishouse: House) -> Int {
         var zip = 90210
         if thishouse.zip_78617 == 1 {zip = 78617}
